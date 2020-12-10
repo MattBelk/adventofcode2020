@@ -37,7 +37,7 @@ $Rules | ForEach-Object {
 	}
 } | Out-Null
 
-$Part1 = (GetContainingBags -Bag 'shiny gold' -Contains $Contains | Select-Object -Unique | Measure-Object).Count
+$Part1 = (GetContainingBags -Bag 'shiny gold' | Select-Object -Unique | Measure-Object).Count
 $Part2 = GetNumberOfContainedBags -Bag 'shiny gold'
 
 Write-Host "Part 1: $Part1"
