@@ -20,10 +20,10 @@ function GetEncryptionWeakness([bigint]$Sum) {
 		if ($UpperIndex) {
 			Write-Host "Lower: $LowerIndex"
 			Write-Host "Upper: $UpperIndex"
-			# $Minimum = $Numbers[$LowerIndex..$UpperIndex] | Where-Object {  }
+			$Measures = $Numbers[$LowerIndex..$UpperIndex] | Measure-Object -Minimum -Maximum
 			Write-Host "Lowest Number: $($Measures.Minimum)"
 			Write-Host "Highest Number: $($Measures.Maximum)"
-			return ($Measures.Minimum + $Measures.Maxmimum)
+			return $Measures.Minimum + $Measures.Maximum
 		}
 	}
 }
