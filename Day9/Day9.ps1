@@ -1,7 +1,3 @@
-$Numbers = Get-Content .\Input.txt | ForEach-Object { [bigint]$_ }
-# $NumbersAsStrings = Get-Content .\Input.txt | ForEach-Object { [string]$_ }
-$PreambleLength = 25
-
 function IsSumOfPrevious([int]$Position) {
 	$Sum = $Numbers[$Position]
 	foreach ($Number in $Numbers[($Position - $PreambleLength)..($Position - 1)]) {
@@ -27,6 +23,9 @@ function GetEncryptionWeakness([bigint]$Sum) {
 		}
 	}
 }
+
+$Numbers = Get-Content .\Input.txt | ForEach-Object { [bigint]$_ }
+$PreambleLength = 25
 
 $Part1Index = ($PreambleLength)..($Numbers.Length-1) | Where-Object { -not (IsSumOfPrevious -Position $_) } | Select-Object -First 1
 $Part1 = $Numbers[$Part1Index]
