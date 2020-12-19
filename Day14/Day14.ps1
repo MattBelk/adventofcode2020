@@ -67,6 +67,7 @@ function SolvePart2($Instructions) {
 }
 
 $Part1 = SolvePart1 -Instructions $Instructions
-
 Write-Host "Part 1: $Part1"
-# Write-Host "Part 2: $Part2"
+
+$Part2 = SolvePart2 -Instructions $Instructions
+Write-Host "Part 2: $Part2"
